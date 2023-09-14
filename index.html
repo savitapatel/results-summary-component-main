@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .card{
+      background-color: hsl(228, 45%, 44%); 
+      width: 50%;
+      height: -webkit-fill-available;
+      padding: 20px;
+      border-radius: 5%;
+      text-align: center;
+    }
+    .list{
+      width: 50%;
+      height: inherit;
+      padding: 20px;
+    }
+    .container{
+        height: 600px;
+        border-radius: 5%;
+        box-shadow: inset;
+        display: flex;
+        flex-direction: row;  
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+        background-color: whitesmoke;
+        margin:auto;
+    }
+    .list_item {
+      display: flex;
+      flex-direction: row;
+      height: 30px;
+      background-color: lightsalmon;
+      margin: 10px;
+      justify-content: space-between;
+      padding: 10px;
+      align-items: center;
+      border-radius: 10px;
+    }
+    .percentage{
+      border-radius: 50%;
+      background-color: blue;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      flex-direction: column;
+    }
+    .font-white{
+      color: whitesmoke;
+      opacity: 0.5;
+    }
+    .btn{
+      border: none;
+      border-radius: 12px;
+      background-color:  blueviolet;
+      height: 50px;
+      width: 100%;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover{
+      background-color: blue;
+    }
+    .opacity{
+      opacity: 0.5;
+    }
+
+    @media screen and (max-width: 480px) {
+      .container {
+        flex-direction: column;
+        width: auto;
+      }
+      .card{
+        width: auto;
+        padding: 0;
+      }
+      .list{
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<script type="text/javascript">
+  function myF(){
+      const data=[
+          {
+            "category": "Reaction",
+            "score": 80,
+            "icon": "./assets/images/icon-reaction.svg"
+          },
+          {
+            "category": "Memory",
+            "score": 92,
+            "icon": "./assets/images/icon-memory.svg"
+          },
+          {
+            "category": "Verbal",
+            "score": 61,
+            "icon": "./assets/images/icon-verbal.svg"
+          },
+          {
+            "category": "Visual",
+            "score": 72,
+            "icon": "./assets/images/icon-visual.svg"
+          }
+      ]
+      const ele =document.getElementById("list")
+  
+      for(let i=0; i< data.length; i++){
+        const ele1 = document.createElement("div")
+        ele1.innerHTML  = ` <div class="list_item">
+          <div>
+            ${data[i]?.category}
+            </div>
+            <div>
+              ${data[i]?.score} <span class="opacity">/ 100</span>
+              </div>
+              </div>`
+        ele.append(ele1)
+    }
+
+
+  }
+</script>
+
+<body onload="myF()">
+
+  <div class="container">
+  
+  <div class="card">
+    <h4 class="font-white">Your Result</h4>
+    <div class="percentage">
+      <h1 style="color: white; margin: 0;">76</h1><br/>
+      <h5 class="font-white" style="margin: 0;"> of 100</h5> 
+    </div>
+    <h3 style="color: white">Great</h3>
+    <h4 class="font-white">
+      You scored higher than 65% of the people who have taken these tests.
+    </h4>
+  </div>
+
+  <div class="list" id="list">
+    <h3>Summary</h3>
+    <button type="button" class="btn">Continue</button>
+  </div>
+</div>
+</body>
+</html>
