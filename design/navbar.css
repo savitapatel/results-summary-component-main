@@ -1,0 +1,37 @@
+
+.navbar{
+    background: palevioletred;
+}
+
+.main-nav{
+    display: flex;
+}
+
+.nav-links{
+    list-style: none;
+    color: aliceblue;
+    margin: 15px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links :hover{
+    background-color: mediumvioletred;
+}
+
+ul {
+    padding: 0;
+}
+
+/* Media Queries */
+@media only screen and (max-device-width:786px), screen and (max-width: 786px)  {
+    .navbar{padding: 10px 0;}
+    .main-nav{display: inline;}
+    .nav-links{
+        text-align: center;
+        margin: 15px;
+    }
+}
